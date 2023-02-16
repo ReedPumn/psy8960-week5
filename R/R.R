@@ -21,4 +21,5 @@ ABclean_tbl <- Bdata_tbl %>%
   mutate(across(contains("q"), ~ as.integer(.))) %>%
   full_join(Bnotes_tbl, by = "parnum") %>%
   subset(is.na(notes)) %>%
-  select(casenum:q10)
+  select(casenum:q10) %>%
+  full_join(Aclean_tbl, by = "parnum") #I will add the "lab" column code if I figure it out.
